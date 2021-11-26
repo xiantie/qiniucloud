@@ -8,8 +8,8 @@
     "email": "303291556@qqcom"
   },
   "dependencies": {
-    "bootstrap": "^5.1.3",
     "@electron/remote": "^2.0.1",
+    "bootstrap": "^5.1.3",
     "electron-store": "^8.0.1"
   },
   "scripts": {
@@ -22,7 +22,7 @@
     "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "GITHUB_TOKEN=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 electron-builder",
+    "release": "cross-env GH_TOKEN=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 electron-builder",
     "prerelease": "npm run build && npm run buildMain",
     "prepack": "npm run build && npm run buildMain",
     "predist": "npm run build && npm run buildMain"
@@ -45,7 +45,9 @@
     "extraMetadata": {
       "main": "./build/main.js"
     },
-    "publish": ["github"],
+    "publish": [
+      "github"
+    ],
     "extends": null,
     "win": {
       "target": [
@@ -83,21 +85,23 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "concurrently": "^6.4.0",
-    "electron-is-dev": "^2.0.0",
-    "axios": "^0.24.0",
-    "qiniu": "^7.4.0",
-    "uuid": "^8.3.2",
     "cross-env": "^7.0.3",
     "electron-builder": "^22.14.5",
+    "electron-is-dev": "^2.0.0",
+    "electron-updater": "^4.6.1",
     "node-sass": "5.0.0",
+    "qiniu": "^7.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-simplemde-editor": "^4.1.5",
+    "uuid": "^8.3.2",
     "wait-on": "^6.0.0",
     "web-vitals": "^1.0.1",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }
